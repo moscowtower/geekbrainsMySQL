@@ -121,7 +121,9 @@ create table discounts (
     valid_from datetime default now(),
     invalid_after datetime,
     created_at datetime default now(),
-    updated_at datetime on update now()
+    updated_at datetime on update now(),
+    
+    foreign key (customer_id) references customers(id)
 ) comment 'Скидки';
 
 drop table if exists dispatched;
