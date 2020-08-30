@@ -104,6 +104,7 @@ create table sales_medications (
 	id serial,
     sale_id bigint unsigned not null,
     medication_id bigint unsigned not null,
+    quantity tinyint unsigned not null,
     created_at datetime default now(),
     updated_at datetime on update now(),
     
