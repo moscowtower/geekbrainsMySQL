@@ -109,7 +109,6 @@ create table sales_medications (
     updated_at datetime on update now(),
     
     foreign key (sale_id) references sales(id),
-    foreign key (medication_id) references warehouse_products(id),
     foreign key (medication_id) references store_products(id)
 ) comment 'Составы заказов';
 
