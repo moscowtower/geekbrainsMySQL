@@ -110,7 +110,20 @@ create table sales_medications (
     
     foreign key (sale_id) references sales(id),
     foreign key (medication_id) references store_products(id)
-) comment 'Составы заказов';
+) comment 'Составы оффлайн-продаж';
+
+drop table if exists phone_sales_medications;
+create table sales_medications (
+	id serial,
+    sale_id bigint unsigned not null,
+    medication_id bigint unsigned not null,
+    quantity tinyint unsigned not null,
+    created_at datetime default now(),
+    updated_at datetime on update now(),
+    
+    foreign key (sale_id) references sales(id),
+    foreign key (medication_id) references warehouse_products(id)
+) comment 'Составы телефонных продаж';
 
 drop table if exists discounts;
 create table discounts (
